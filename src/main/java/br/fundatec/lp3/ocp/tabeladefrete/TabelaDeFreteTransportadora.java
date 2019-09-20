@@ -2,8 +2,9 @@ package br.fundatec.lp3.ocp.tabeladefrete;
 
 import br.fundatec.lp3.ocp.Regiao;
 
-public class TabelaDeFreteTransportadora {
+public class TabelaDeFreteTransportadora implements TabelaDeFrete {
 
+	@Override
 	public double para(Regiao regiao) {
 
 		switch(regiao) {
