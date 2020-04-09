@@ -6,10 +6,5 @@ public enum Regiao {
 	SUDESTE,
 	NORTE,
 	NORDESTE,
-	AMERICA_DO_NORTE,
-	EUROPA,
-	ASIA,
-	AFRICA,
-	OCEANIA
 
 }

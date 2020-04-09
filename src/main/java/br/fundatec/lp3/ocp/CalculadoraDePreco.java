@@ -1,19 +1,24 @@
 package br.fundatec.lp3.ocp;
 
 import br.fundatec.lp3.ocp.tabeladefrete.TabelaDeFreteCorreios;
-import br.fundatec.lp3.ocp.tabeladepreco.TabelaDePrecoPadrao;
 
 public class CalculadoraDePreco {
 
 	public double calcula(Compra compra) {
 
-		TabelaDePrecoPadrao tabelaPreco = new TabelaDePrecoPadrao();
+		double valor = compra.getValor();
+		Pagamento pagamento = compra.getPagamento();
+
+		if (pagamento.equals(Pagamento.BOLETO)) {
+			valor *= 0.90;
+		}
+
 		TabelaDeFreteCorreios tabelaFrete = new TabelaDeFreteCorreios();
 
-		double desconto = tabelaPreco.descontoPara(compra.getValor());
 		double precoFrete = tabelaFrete.para(compra.getRegiao());
+		double valorFinal = valor + precoFrete;
 
-		return compra.getValor() * (1-desconto) + precoFrete;
+		return valorFinal;
 
 	}
 
